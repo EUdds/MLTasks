@@ -2,16 +2,26 @@ function Bird() {
     this.y = height/2;
     this.x = 64;
 
-    this.gravity = 0.6;
+    this.gravity = 0.7;
     this.velocity = 0;
-    this.lift = 15;
+    this.lift = 12;
+
+    this.src = 'images/bird.png';
+    this.img;
+
+    this.init = () => {
+        this.img = loadImage(this.src);
+    }
     
     this.show = () => {
-        fill(255);
-        ellipse(this.x, this.y, 16, 16);
+        // fill(255);
+        // ellipse(this.x, this.y, 32, 32);
+        
+        image(this.img, this.x, this.y, this.img.width, this.img.height);
     }
 
     this.update = () => {
+        rotate(0);
         this.velocity += this.gravity;
         this.y += this.velocity;
         this.velocity *= 0.9
@@ -28,5 +38,6 @@ function Bird() {
 
     this.up = () => {
         this.velocity -= this.lift;
+        rotate(PI / 12);
     }
 }

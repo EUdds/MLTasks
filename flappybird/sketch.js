@@ -1,14 +1,19 @@
 let bird;
 let pipes = [];
 
+let bgSrc = 'images/bg.png'
+let bgImg;
+
 function setup() {
     createCanvas(400, 600);
+    bgImg = loadImage(bgSrc);
     bird = new Bird();
-    pipes.push(new Pipe());
+    bird.init();
+    addNewPipe();
 }
 
 function draw() {
-    background(0);
+    background(bgImg);
 
     for( let i = pipes.length-1; i >= 0; i--) {
         pipes[i].show();
@@ -27,7 +32,7 @@ function draw() {
     bird.show();
 
     if ((frameCount % 75) == 0) {
-        pipes.push(new Pipe()); 
+        addNewPipe();
     }
 }
     function keyPressed() {
@@ -35,3 +40,9 @@ function draw() {
             bird.up();
         }
     }
+
+function addNewPipe() {
+    let newPipe = new Pipe();
+    pipes.push(newPipe);
+    newPipe.init();    
+}
