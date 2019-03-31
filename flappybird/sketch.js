@@ -22,6 +22,7 @@ function setup() {
   generationLabel = createElement('h1', 'Generation 1');
   birdsLabel = createElement('h1');
   saveButton = createButton("Save");
+  infoLabel = createP("Wanna know whats happening? This is a simulation of neruoevolution using the once popular game Flappy Bird. The simulation is based off a Network, a mathamatical model of the human brain. Every frame, the bird has a decision, to jump or not to jump. How does it make these decisions? Well, the each bird is fed 4 pieces of data, its own y coordinate, the height of each pipe, and how far away is the pipe. Each generation starts with 500 birds, as the game progresses, the brain may make a mistake and that bird will die. When all the birds are gone the longest surviving bird is chosen to be the base model for the next generation. The simulation starts out in generation one, you can see the decisions are pretty much random, but as the evolution continues the computer learns exactly when to jump. There are no explicit instructions on when the bird should jump, it learns from its previous generations.");
   saveButton.mousePressed(saveBird);
 }
 
