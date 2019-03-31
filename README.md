@@ -5,7 +5,7 @@ This repo will document and store my colllection of tasks and games I create as 
 
 ## Current List of Supported Tasks
 
-- [Flappy Bird](/flappybird)
+- [Flappy Bird](/flappybird/)
 
 ## Libraries Used
 
