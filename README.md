@@ -1,11 +1,11 @@
 # Machine Learning Tasks
-* Author: Eric Udlis *
+*Author: Eric Udlis*
 
 This repo will document and store my colllection of tasks and games I create as I start to learn about Maching Learning.
 
 ## Current List of Supported Tasks
 
-- Flappy Bird
+- [Flappy Bird](eudds.github.io/MLtasks/flappybird)
 
 ## Libraries Used
 
