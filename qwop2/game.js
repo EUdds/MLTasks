@@ -586,6 +586,7 @@ function resetRunner() {
     lockRevoluteJoint(l_arm_joint,8000);
     lockRevoluteJoint(r_arm_joint,8000);
 
+
     setInterval(function() {
         if (!mainLoopPaused) {
             if (maintainLeftHipStability) {
@@ -815,7 +816,14 @@ function record() {
     stepData.push([stateVector(s),keyState])
 }
 
+let firstPlayer = new Player();
+let players = [firstPlayer];
+let counter = 0;
 function mainLoop() {
+    counter ++
+    players.forEach((player) => {
+        player.think();
+    });
 
     if (!mainLoopPaused) {
         ctx.clearRect(0,0,cWidth,cHeight);
@@ -985,7 +993,9 @@ function mainLoop() {
                 endRecording(false);
                 console.log('(-) YOU DIED.')
             }
-
+            let dyingPlayer = players[0];
+            players.splice(0, 1);
+            players.push(nextGeneration(dyingPlayer));
             step_phase = [false,false];
             stepBeginAngle = NaN;
             stepBackLeg = undefined;
