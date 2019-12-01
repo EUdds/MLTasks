@@ -819,6 +819,7 @@ function record() {
 let firstPlayer = new Player();
 let players = [firstPlayer];
 let counter = 0;
+let prevX = 0;
 function mainLoop() {
     counter ++
     players.forEach((player) => {
@@ -983,16 +984,16 @@ function mainLoop() {
                 notifyFall(totalStepsTraveled);
             }
         }
-
+        if((body.head.m_xf.position.x.toFixed(0) >= prevX.toFixed(0) - 1 || body.head.m_xf.position.x.toFixed(0) <= prevX.toFixed(0) + 1) && !walkDelay) requestReset;
+        prevX = body.head.m_xf.position.x
         if (requestReset) {
-            if (aimode) {
-                distData.push({'t':iterations,'dist':totalDistTraveled,'steps':totalStepsTraveled})
-            }
+           console.log('reset');
 
             if (recordingSteps) {
                 endRecording(false);
                 console.log('(-) YOU DIED.')
             }
+
             let dyingPlayer = players[0];
             players.splice(0, 1);
             players.push(nextGeneration(dyingPlayer));

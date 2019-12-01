@@ -1,7 +1,11 @@
 this.fitnesses = [];
 this.generations = [];
-function Player() {
-  this.brain = new NeuralNetwork(12, 5, 8);
+function Player(brain) {
+    if(brain) {
+        this.brain = brain.copy();
+    } else {
+        this.brain = new NeuralNetwork(12, 5, 8);
+    }
   this.prevChoice = null;
  
   this.score = 0;
@@ -126,7 +130,7 @@ function indexOfMax(arr) {
 }
 
   function calculateFitness() {
-    let score = counter;
+    let score = totalDistTraveled;
     let fitness = this.score / 100;
     fitnesses.push(this.fitness);
   }
