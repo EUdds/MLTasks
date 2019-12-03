@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>MLTasks - Doodle Classification</title>
+    <script src="Classification.js"></script>
+    <script src="TrainTest.js"></script>
+    <script src="DataInterfacing.js"></script>
+    <script src="sketch.js"></script>
+    <script src="libs/p5.js"></script>
+    <script src="libs/p5.dom.js"></script>
+    <script src="libs/nn.js"></script>
+    <script src="libs/matrix.js"></script>
+    <style>
+      button {
+        font-size: 18pt;
+        margin: 10px;
+      }
+      body {
+        background: #AAA;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="train">Train</button>
+    <button id="test">Run Tests</button>
+    <button id="guess">Guess Drawing</button>
+    <button id="clear">Clear Canvas</button>
+    <button id="save">Save Brain Model</button>
+    <button id="load">Load Brain Model</button>
+    <h3 id="classification"></h3>
+    <p>This is a doodle classifier that determines what you drew based on a series of doodles that the machine (I'm starting to call him Anton) learns. 
+      There is no hard code that tells this program what your picture means. It simply guesses using the pictures it has been taught. 
+      Click the train button to evolve the brain by one epoch. Click the run test button to quickly test several hundred images. 
+      Click on the white square to draw a shape of your choosing, and click guess drawing to have the neural network guess what it is. 
+      You should know what clear canvas does. Because training is tedious and long, you can save and load brain models in a .JSON format</p>
+  </body>
+</html>
