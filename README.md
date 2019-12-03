@@ -7,7 +7,7 @@ This repo will document and store my colllection of tasks and games I create as 
 ## Current List of Supported Tasks
 
 - [Flappy Bird](/flappybird/)
-- [Word2Vec ~NO ML, just playing around~](/word2vec/)
+- [Word2Vec *NO ML, just playing around*](/word2vec/)
 - [Doodle Classification](/doodleclassification)
 
 ## Libraries Used
