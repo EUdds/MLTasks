@@ -1,15 +1,15 @@
 const LEN = 784;
-let trains = new Classification("TRAIN");
-let axes = new Classification("AXE");
-let fish = new Classification("FISH");
-let angels = new Classification("ANGEL")
+let ants = new Classification("ANT");
+let bicycles = new Classification("BICYCLE");
+let clouds = new Classification("CLOUD");
+let ears = new Classification("EAR");
 
 let nn;
 
 
 function preload(){
   for (let n =0; n < classifiers.length; n++) {
-    classifiers[n].raw = loadNPZFile(`${classifiers[n].name.toLowerCase()}`)
+    classifiers[n].raw = loadNPYFile(`${classifiers[n].name.toLowerCase()}`)
   }
 }
 function setup() {
@@ -29,12 +29,20 @@ function setup() {
   });
   let testButton = select('#test');
   testButton.mousePressed(() => {
+    classText.html("Testing");
     let pct = testAll();
-    console.log(`Tested Epoch ${epochCounter} with ${pct}% accuracy`);
+    classText.html(`Tested Epoch ${epochCounter} with ${pct}% accuracy`);
 
   });
   let classText = select('#classification');
   let guessButton = select('#guess');
+  let listString = "";
+  for (let n = 0; n < classifiers.length; n ++) {
+    listString += classifiers[n].name;
+    if (n != classifiers.length - 1) listString += ", ";
+  }
+  classText.html(`Can currently Recognize ${listString}`);
+
   guessButton.mousePressed(() => {
     let inputs = [];
     let img = get();
@@ -60,7 +68,23 @@ function setup() {
   saveButton.mousePressed(() => {
     let string = nn.serialize();
     saveJSON(nn, "nn.json");
-  })
+  });
+
+  let loadButton = select('#load');
+  loadButton.mousePressed(() => {
+    document.getElementById('fileInput').click();
+  });
+
+  document.getElementById('fileInput').addEventListener('change', () => {
+    let tmpPath = URL.createObjectURL(event.target.files[0]);
+    console.log(tmpPath);
+    loadJSON(tmpPath, (json) => {
+      console.log(json);
+      nn = NeuralNetwork.deserialize(json);
+      classText.html('Brain Model Sucessfully Loaded');
+
+    })
+  });
 
 }
 

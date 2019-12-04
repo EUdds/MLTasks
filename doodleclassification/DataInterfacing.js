@@ -21,7 +21,7 @@ function prepAllData(categories) {
   }
 }
 
-function loadNPZFile(path) {
-  let data = loadBytes(`./bin/${path}.npz`);
+function loadNPYFile(path) {
+  let data = loadBytes(`./bin/${path}.npy`);
   return data;
 }

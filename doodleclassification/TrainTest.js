@@ -52,6 +52,7 @@ function createTestingArray(list) {
 function testAll() {
   let testing = createTestingArray(classifiers);
   let correctness = 0;
+  console.log(testing);
   for (let i = 0; i < testing.length; i++) {
     let data = testing[i];
     let inputs = Array.from(data).map(x => x / 255);

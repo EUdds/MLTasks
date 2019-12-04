@@ -25,12 +25,16 @@
     <button id="guess">Guess Drawing</button>
     <button id="clear">Clear Canvas</button>
     <button id="save">Save Brain Model</button>
+    <form>
+      <input type="file" id="fileInput" style="display: none;"></input>
+    </form>
     <button id="load">Load Brain Model</button>
-    <h3 id="classification"></h3>
+    <h2 id="classification"></h2>
     <p>This is a doodle classifier that determines what you drew based on a series of doodles that the machine (I'm starting to call him Anton) learns. 
       There is no hard code that tells this program what your picture means. It simply guesses using the pictures it has been taught. 
       Click the train button to evolve the brain by one epoch. Click the run test button to quickly test several hundred images. 
       Click on the white square to draw a shape of your choosing, and click guess drawing to have the neural network guess what it is. 
       You should know what clear canvas does. Because training is tedious and long, you can save and load brain models in a .JSON format</p>
+      <p><b>Testing and Training take a while, you computer isn't frozen, the webpage just uses all it's resources to run the simulation rather than updating the screen.</b></p>
   </body>
 </html>
