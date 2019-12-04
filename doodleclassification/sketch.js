@@ -75,6 +75,14 @@ function setup() {
     document.getElementById('fileInput').click();
   });
 
+  let loadDefaultButton = select('#loadDefault');
+  loadDefaultButton.mousePressed(() => {
+    loadJSON('nn.json', (json) => {
+      nn = NeuralNetwork.deserialize(json);
+      classText.html('Default Model Loaded');
+    });
+  });
+
   document.getElementById('fileInput').addEventListener('change', () => {
     let tmpPath = URL.createObjectURL(event.target.files[0]);
     console.log(tmpPath);
